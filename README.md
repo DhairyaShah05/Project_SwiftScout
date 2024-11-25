@@ -1,5 +1,12 @@
 # SwiftScout
 
+# Project Badges
+![CICD Workflow status](https://github.com/DhairyaShah05/Project_SwiftScout/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg)
+
+[![codecov](https://codecov.io/gh/DhairyaShah05/Project_SwiftScout/graph/badge.svg?token=Y7PV8e48Nf)](https://codecov.io/gh/DhairyaShah05/Project_SwiftScout)
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 # Overview
 This repository contains a swarm robotics implementation designed for Search and Rescue (SaR) operations.
 
