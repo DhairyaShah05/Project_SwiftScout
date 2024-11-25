@@ -20,7 +20,6 @@ find_package(rclcpp_action REQUIRED)
 find_package(nav2_map_server REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(sar REQUIRED) # Include SAR dependency
 
 ###################################
 # Configure Code Coverage and Tests
