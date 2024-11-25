@@ -3,7 +3,7 @@
 <package format="3">
   <name>multi_robot</name>
   <version>1.0.0</version>
-  <description>ROS Swarm Robotics for Search and Rescue</description>
+  <description>ROS Project_SwiftScout</description>
   <maintainer email="harsh.senjaliya.hs@gmail.com">harsh</maintainer>
   <license>MIT</license>
 
