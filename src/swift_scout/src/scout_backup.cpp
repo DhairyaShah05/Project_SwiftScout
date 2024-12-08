@@ -37,11 +37,11 @@ public:
 private:
     std::vector<GoalPosition> set_goals_for_robot(const std::string& robot_namespace) {
         if (robot_namespace == "tb1") {
-            return {{-0.5, -0.5}, {-0.5, -2}, {1.5, -2}, {2, -0.4}, {1.5, 0.5},
-                    {1.5, 2}, {-0.5, 2}, {-1.5, 0.4}};
+            return {{-0.5, -1.5}, {-0.5, -2}, {0.5, -2}, {2, -0.4}, {1.5, 0.5},
+                    {1.5, 2}, {-0.5, 2}, {-1.5, 0.9}};
         } else if (robot_namespace == "tb2") {
-            return {{-0.5, 0.4}, {-0.5, 2}, {1.5, 2}, {1.5, -2}, {-0.5, -2},
-                    {-0.5, -0.4}, {-1.5, -0.4}};
+            return {{-0.5, 0.4}, {-0.5, 2}, {1.5, 5}, {1.0, -2}, {-0.5, -2},
+                    {-0.5, -0.4}, {-1.5, -0.9}};
         } else {
             RCLCPP_ERROR(this->get_logger(), "Unknown robot namespace: %s", robot_namespace.c_str());
             return {};
