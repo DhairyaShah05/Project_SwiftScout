@@ -78,7 +78,10 @@ jobs:
 
           # Start from scratch
           rm -rf build/ install/
+          set +u  # Temporarily disable undefined variable check
+          export AMENT_TRACE_SETUP_FILES=${AMENT_TRACE_SETUP_FILES:-}
           source /opt/ros/humble/setup.bash
+          set -u  # Re-enable undefined variable check
 
           # Build for test coverage
           colcon build --cmake-args -DCOVERAGE=1
@@ -115,9 +118,6 @@ jobs:
                $ALL_COVERAGE_INFO
 
           genhtml --output-dir $COMBINED_TEST_COVERAGE $ALL_COVERAGE_INFO
-
-          # Optionally show the report locally (disabled for CI)
-          # open $COMBINED_TEST_COVERAGE/index.html || true
 
       # Upload coverage result to CodeCov
       - name: Upload coverage result to CodeCov
