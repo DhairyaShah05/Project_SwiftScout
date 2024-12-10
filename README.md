@@ -34,7 +34,10 @@ The project follows AIP principles and employs pair programming, with regular ro
 
 Testing is carried out using GoogleTest for individual components, while system-wide tests are performed iteratively to ensure overall functionality. Integration tests are conducted to evaluate node performance at the global level.
 
+# Links
 
+## Video Links
+[Final Project, Implementation Run](https://youtu.be/RwbA1kzdZYU)
 ## AIP Document Links
 [AIP Google Sheet](https://docs.google.com/spreadsheets/d/1YPUIW5JSqR-EWpY1HwXwIEfF1Ur8AC_8NLE_qPvy1vg/edit?usp=sharing)
 
@@ -59,4 +62,130 @@ For Phase 1, the initial design of UML diagrams and empty implementation with cl
 
 ### Unit Tests
  - Level 1: Tests for the C++ API, to check functionality of every class method was created
- - Level 2 (Incomplete): Placeholder test for publishing is created
+ - Level 2: Placeholder test for publishing is created
+
+## Phase 2
+For Phase 2, the actual implementation of the C++ API and the ROS2 node working with the API is completed.
+
+### Changelogs
+ - GoalPublisher1 renamed to GoalGenerator
+ - UML Diagrams edited and API changes based on UML diagram-revised
+
+### Features
+
+ROS2 Node: GoalGenerator
+ - Uses search and goals library
+ - Publishes goals ascynchronously to Nav2 topic using ActionClient
+ - Performs object detection simultaeneously by subscribing to camera topic
+ - Work with namespaces
+ - Requires compulsory parameter for namespace
+
+
+URDF & SDF
+ - Turtlebot URDF & SDF edited to support namespaces
+
+Nav2
+ - Added Nav2 launch files and edited to support swift_scout namespaces
+
+RViz
+ - Custom RViz file for Nav2 visualization
+
+Launch file
+ - Launches as dependencies as a single command
+ - Default launches 2 robots, robot number can be changed by user input
+ - User required to provide robot spawn location. Spawn points can be hardcodded or passed using a .txt file
+ - User required to provide map file for Nav2 localization
+    
+Unit Tests
+ - USed during initial implementation
+ - Don't work as intended in final implementation because of addition of compulsory namespace requirement. Namespace is assigned dynamically and node run requires compulsory parameter.
+ - Proper unit tests for node can't be written because of Nav2 AMCL and map server running requirements (Computationaly heavy and takes time to launch)
+
+### Run Node
+```bash
+# Run goal_pub node
+  ros2 run swift_scout goal_pub < namespace >
+
+# Example run
+  ros2 run swift_scout goal_pub tb1
+```
+
+## Launch
+```bash
+# Launch the main implementation
+  ros2 launch swift_scout swift_scout_main.launch.py num:=< add robot num > # If no num:= default robot spawn 2
+
+# Launch with params
+  ros2 launch swift_scout swift_scout_main.launch.py num:=< add robot num > < param name >:=< param value >
+
+# View params
+  ros2 param list
+```
+
+# Future Works
+ - Path planning approach for exploration instead of random goal generation
+ - Dynamic robot spawn locations
+
+# Build Commands
+
+## How to build
+
+```bash
+rm -rf build/ install/
+colcon build 
+source install/setup.bash
+```
+
+## How to build for tests (unit test and integration test)
+
+```bash
+rm -rf build/ install/
+colcon build --cmake-args -DCOVERAGE=1 
+```
+
+## How to run tests (unit and integration)
+
+```bash
+source install/setup.bash
+colcon test
+# View test results
+colcon test-result --all --verbose
+```
+
+## How to generate coverage reports after running colcon test
+
+First make sure we have run the unit test already.
+
+```bash
+colcon test
+```
+
+### Test coverage report for `multi_robot`:
+
+``` bash
+ros2 run swift_scout generate_coverage_report.bash
+open build/swift_scout/test_coverage/index.html
+```
+
+### Test coverage report for `sar`:
+
+``` bash
+colcon build \
+       --event-handlers console_cohesion+ \
+       --packages-select sar \
+       --cmake-target "test_coverage" \
+       --cmake-arg -DUNIT_TEST_ALREADY_RAN=1
+open build/sar/test_coverage/index.html
+```
+
+### combined test coverage report
+
+``` bash
+./do-tests.bash
+```
+
+## How to generate project documentation
+``` bash
+./do-docs.bash
+```
+
