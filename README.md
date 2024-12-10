@@ -160,7 +160,7 @@ First make sure we have run the unit test already.
 colcon test
 ```
 
-### Test coverage report for `multi_robot`:
+### Test coverage report for `swift_scout`:
 
 ``` bash
 ros2 run swift_scout generate_coverage_report.bash
