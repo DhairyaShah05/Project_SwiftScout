@@ -1,9 +1,9 @@
 # SwiftScout
 
 # Project Badges
-![CICD Workflow status](https://github.com/DhairyaShah05/Project_SwiftScout/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg)
+![CICD Workflow status](https://github.com/DhairyaShah05/Project_Swift_Scout/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg)
 
-[![codecov](https://codecov.io/gh/DhairyaShah05/Project_SwiftScout/graph/badge.svg?token=Y7PV8e48Nf)](https://codecov.io/gh/DhairyaShah05/Project_SwiftScout)
+[![codecov](https://codecov.io/gh/DhairyaShah05/Project_Swift_Scout/graph/badge.svg?token=oH9Cac0lSf)](https://codecov.io/gh/DhairyaShah05/Project_Swift_Scout)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
