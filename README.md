@@ -36,7 +36,7 @@ Testing is carried out using GoogleTest for individual components, while system-
 
 
 ## AIP Document Links
-[AIP Google Sheet](https://docs.google.com/spreadsheets/d/1K__smf05IeHZDRuQ_w7mCyBxsAQL_khGKTmJnTKZrJA/edit?usp=sharing)
+[AIP Google Sheet](https://docs.google.com/spreadsheets/d/1YPUIW5JSqR-EWpY1HwXwIEfF1Ur8AC_8NLE_qPvy1vg/edit?usp=sharing)
 
 [Sprint Notes](https://docs.google.com/document/d/1Fy3jsI4zflh32w8KlTzDQFwrvc6luE-MJg53ZJx5ot4/edit?usp=sharing)
 
